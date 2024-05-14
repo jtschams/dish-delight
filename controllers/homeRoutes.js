@@ -7,7 +7,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
     try {
         const recipesData = await Recipe.findAll({
-            order: [['name', 'ASC']],
+            
         });
         
         const recipes = recipesData.map((recipe) => recipe.get({ plain: true }));
