@@ -12,10 +12,10 @@ router.get('/', async (req, res) => {
         
         const recipes = recipesData.map((recipe) => recipe.get({ plain: true }));
         
-         res.render('main', {
-            recipes,
-            
-            loggedIn: req.session.loggedIn,//do we need this is if we dont care if our user is logged into the page or not at this point in the website?
+        res.render('createRecipes', {
+            users,
+            // Pass the logged in flag to the template
+            loggedIn: req.session.loggedIn,
         });
         return res.status(200).json(recipes)
     } catch (err) {
@@ -42,7 +42,7 @@ router.get('/recipe:id', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the homepage
+  // If a session exists, redirect the request to the createRecipes
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
