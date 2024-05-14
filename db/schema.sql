@@ -1,4 +1,4 @@
 -- TODO: Change your database name to reflect your application
 
-DROP DATABASE IF EXISTS project2_db;
-CREATE DATABASE project2_db;
+DROP DATABASE IF EXISTS dishdelight_db;
+CREATE DATABASE dishdelight_db;
