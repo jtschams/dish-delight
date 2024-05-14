@@ -6,7 +6,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
-        const recipesData = await Recipe.findAll({
+        const dbRecipesData = await Recipe.findAll({
             
         });
         
@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 // Prevent non logged in users from viewing the recipe page
 router.get('/recipe:id', withAuth, async (req, res) => {
     try {
-    const recipeData = await Recipe.findByPk(req.params.id,{
+    const dbRecipeData = await Recipe.findByPk(req.params.id,{
 
     });
 
@@ -53,7 +53,7 @@ router.get('/login', (req, res) => {
 
 router.get('/create-recipes',withAuth, async(req,res)=>{
   try{
-    const createRecipeData= await Recipe.findAll({})
+    const dbCreateRecipeData= await Recipe.findAll({})
     const createRecipe=createRecipeData.map((recipe)=>recipe.get({plain:true}));
     res.render('createRecipes', {
       createRecipe,
@@ -69,7 +69,7 @@ router.get('/create-recipes',withAuth, async(req,res)=>{
 
 router.get('/my-recipes',withAuth, async(req,res)=>{
   try{
-    const myRecipesData= await Recipe.findAll({})
+    const dbMyRecipesData= await Recipe.findAll({})
     const myRecipe=myRecipesData.map((recipe)=>recipe.get({plain:true}));
     res.render('viewRecipes', {
       myRecipe,
