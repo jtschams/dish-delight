@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/viewRecipes');
+      document.location.replace('/');
     } else {
       alert('Failed to log in');
     }
@@ -40,7 +40,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/viewRecipes');
+      document.location.replace('/');
     } else {
       alert('Failed to log in');
     }
