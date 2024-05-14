@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Recipe extends Model {}
+class RecipeIngredient extends Model {}
 
-Recipe.init(
+RecipeIngredient.init(
   {
     id: {
         type: DataTypes.INTEGER,
@@ -11,38 +11,34 @@ Recipe.init(
         primaryKey: true,
         autoIncrement: true,
     },
-    name: {
-        type: DataTypes.STRING,
+    ingredient_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+            model: 'ingredient',
+            key: 'id'
+        }
     },
-    directions: {
-        type: DataTypes.TEXT,
-        allowNull: false,
+    amount: {
+        type: DataTypes.FLOAT,
+        allowNull:false
     },
-    description: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    picture: {
-        type: DataTypes.STRING,
-    },
-    user_id: {
+    measure_id: {
         type: DataTypes.STRING,
         allowNull: false,
         references: {
-            model: 'user',
+            model: 'measure',
             key: 'id'
         }
     }
   },
   {
-    // TODO: Add hook aftercreate to create ingredient list (variable.ingredients)
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'recipe',
+    modelName: 'recipe-ingredient',
   }
 );
 
-module.exports = Recipe;
+module.exports = RecipeIngredient;
