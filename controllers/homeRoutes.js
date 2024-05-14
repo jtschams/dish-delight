@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
         
         const users = userData.map((project) => project.get({ plain: true }));
         
-        res.render('homepage', {
+        res.render('createRecipes', {
             users,
             // Pass the logged in flag to the template
             loggedIn: req.session.loggedIn,
@@ -23,15 +23,15 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Prevent non logged in users from viewing the dashboard
-router.get('/dashboard', withAuth, async (req, res) => {
+// Prevent non logged in users from viewing the viewRecipes
+router.get('/viewRecipes', withAuth, async (req, res) => {
     try {
     const userData = await User.findByPk(req.session.userId, {
       attributes: { exclude: ['password'] }
     });
 
     const user = userData.get({ plain: true });
-    res.render('dashboard', {
+    res.render('viewRecipes', {
       user,
       // Pass the logged in flag to the template
       loggedIn: req.session.loggedIn,
@@ -42,7 +42,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the homepage
+  // If a session exists, redirect the request to the createRecipes
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
