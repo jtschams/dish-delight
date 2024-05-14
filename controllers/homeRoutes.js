@@ -1,43 +1,43 @@
 // TODO: Change or add any View routes here
 
 const router = require('express').Router();
-const { User } = require('../models');
+const { Recipe,User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
-        const userData = await User.findAll({
-            attributes: { exclude: ['password'] },
+        const recipesData = await Recipe.findAll({
             order: [['name', 'ASC']],
         });
         
-        const users = userData.map((project) => project.get({ plain: true }));
+        const recipes = recipesData.map((recipe) => recipe.get({ plain: true }));
         
-        res.render('homepage', {
-            users,
-            // Pass the logged in flag to the template
-            loggedIn: req.session.loggedIn,
+         res.render('main', {
+            recipes,
+            
+            loggedIn: req.session.loggedIn,//do we need this is if we dont care if our user is logged into the page or not at this point in the website?
         });
+        return res.status(200).json(recipes)
     } catch (err) {
-        res.status(500).json(err);
+        return res.status(500).json({message:'Internal server: Could not find all recipes',error:err.message});
+      
     }
 });
 
-// Prevent non logged in users from viewing the dashboard
-router.get('/dashboard', withAuth, async (req, res) => {
+// Prevent non logged in users from viewing the recipe page
+router.get('/recipe:id', withAuth, async (req, res) => {
     try {
-    const userData = await User.findByPk(req.session.userId, {
-      attributes: { exclude: ['password'] }
+    const recipeData = await Recipe.findByPk(req.params.id,{
+
     });
 
-    const user = userData.get({ plain: true });
-    res.render('dashboard', {
-      user,
-      // Pass the logged in flag to the template
+    const recipe=recipeData.get({plain:true});
+    res.render('viewRecipes',{recipe,
       loggedIn: req.session.loggedIn,
-    });
+    })
+    return res.status(200).json(recipe)
   } catch (err) {
-    res.status(500).json(err);
+    return res.status(500).json({message:'Internal server: Could not find that recipe',error:err.message});
   }
 });
 
@@ -50,5 +50,40 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+router.get('/create-recipes',withAuth, async(req,res)=>{
+  try{
+    const createRecipeData= await Recipe.findAll({})
+    const createRecipe=createRecipeData.map((recipe)=>recipe.get({plain:true}));
+    res.render('createRecipes', {
+      createRecipe,
+      
+      loggedIn: req.session.loggedIn
+  });
+
+    return res.status(200).json(createRecipe)
+  }catch(err){
+    return res.status(500).json({message:'Internal server: Could not find that recipe',error:err.message});
+  }
+});
+
+router.get('/my-recipes',withAuth, async(req,res)=>{
+  try{
+    const myRecipesData= await Recipe.findAll({})
+    const myRecipe=myRecipesData.map((recipe)=>recipe.get({plain:true}));
+    res.render('viewRecipes', {
+      myRecipe,
+      
+      loggedIn: req.session.loggedIn
+  });
+
+    return res.status(200).json(createRecipe)
+  }catch(err){
+    return res.status(500).json({message:'Internal server: Could not view your recipes',error:err.message});
+  }
+});
+
+
+
 
 module.exports = router;
