@@ -1,4 +1,3 @@
-// TODO: Change or add any User-specific properties here
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
