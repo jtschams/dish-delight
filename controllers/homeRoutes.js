@@ -1,7 +1,7 @@
 // TODO: Change or add any View routes here
 
 const router = require('express').Router();
-const { Recipe,User } = require('../models');
+const { Recipe} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -31,7 +31,7 @@ router.get('/recipe:id', withAuth, async (req, res) => {
 
     });
 
-    const recipe=recipeData.get({plain:true});
+    const recipe= recipeData.get({plain:true});
     res.render('viewRecipes',{recipe,
       loggedIn: req.session.loggedIn,
     })
