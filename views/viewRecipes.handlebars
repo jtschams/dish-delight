@@ -2,3 +2,21 @@
 <h1>{{user.name}}'s login screen page! Auth protected. Add content to views/viewRecipes.handlebars here!</h1>
 
 <p>So here is the page that users will see after signing up or logging in (atm you stay logged in so anytime you come back to the page it will already signed in)</p>
+
+<h2>Recipe Form</h2>
+
+<form id="recipe-form">
+    <label for="title">Name of Dish</label>
+    <input type="text" id="title" name="title" required>
+    
+    <label for="description">Description of Dish</label>
+    <textarea id="description" name="description" required></textarea>
+    
+    <label for="ingredients">List Ingredients</label>
+    <textarea id="ingredients" name="ingredients" required></textarea>
+    
+    <label for="instructions">Instructions</label>
+    <textarea id="instructions" name="instructions" required></textarea>
+    
+    <button type="submit">Create</button>
+</form>
