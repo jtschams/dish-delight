@@ -38,3 +38,112 @@
 
 
 <script src="/js/login.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/jass.css">
+    <style>
+        /* Define pastel colors */
+        .pastel-blue-bg {
+            background-color: #8fb7c9;
+        }
+
+        .pastel-purple {
+            color: #b3cfbc;
+        }
+
+        .pastel-green {
+            color: #c7e9c0;
+        }
+
+        .pastel-pink {
+            color: #ffcccb;
+        }
+
+        /* Custom form styles */
+        .login-form,
+        .signup-form {
+            width: 300px;
+            margin: 0 auto; /* Center the form horizontally */
+            padding: 20px;
+            background-color: #f8f9fa; /* Pastel background color */
+            border: 1px solid #b3cfbc; /* Border color */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            color: #495057; /* Text color */
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da; /* Border color */
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffb6c1; /* Pastel button color */
+            color: #fff; /* Button text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="pastel-blue-bg">
+    <section class="d-flex flex-column align-items-center">
+        <h2 class="pastel-purple mb-4">Login</h2>
+        <form class="form login-form">
+            <div class="form-group">
+                <label for="email-login" class="form-label">Email:</label>
+                <input class="form-input" type="text" id="email-login" />
+            </div>
+            <div class="form-group">
+                <label for="password-login" class="form-label">Password:</label>
+                <input class="form-input" type="password" id="password-login" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
+        <h2 class="pastel-purple mb-4">Sign Up</h2>
+        <form class="form signup-form">
+            <div class="form-group">
+                <label for="name-signup" class="form-label">Name:</label>
+                <input class="form-input" type="text" id="name-signup" />
+            </div>
+            <div class="form-group">
+                <label for="email-signup" class="form-label">Email:</label>
+                <input class="form-input" type="text" id="email-signup" />
+            </div>
+            <div class="form-group">
+                <label for="password-signup" class="form-label">Password:</label>
+                <input class="form-input" type="password" id="password-signup" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Sign Up</button>
+            </div>
+        </form>
+    </section>
+
+    <script src="/js/login.js"></script>
+</body>
+
+</html>
