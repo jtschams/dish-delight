@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Qty = require('js-quantities');
 const Ingredient = require('./Ingredient');
 const Measure = require('./Measure');
 
@@ -52,23 +53,52 @@ RecipeIngredient.init(
   {
     hooks: {
       beforeBulkCreate: async (ingredientList) => {
-        
-        // Creates ingredient and measure if do not exist.  Adds their id's to each ingredient.
+        const ingredientObs = [];
         for (const ingredient of ingredientList) {
-          let ingredName = await Ingredient.findOne({ where: { name: ingredient.name } });
+          const newIngredient = {};
+          // Converts ingredient string to ingredient object
+          const ingredArray = ingredient.split(' ');
+          const amountRE = /^\d*\s?\d+(\.|\/)?\d*$/;
+          const amountCheck = ingredArray.map((part) => {
+            return amountRE.test(part)
+	        });
+          const amountEnd = amountCheck.lastIndexOf(true);
+          // Creates amount
+          if (amountCheck.indexOf(true) === amountEnd) {
+            newIngredient.amount = ingredArray[amountEnd]
+          } else {
+            newIngredient.amount = [ingredArray[amountEnd - 1], ingredArray[amountEnd]].join(' ')
+          }
+          // Creates measure from after amount
+          const measureArray = [];
+          let i = 0;
+          while (i < 3 && !newIngredient.measure) {
+            i++;
+            measureArray.push(ingredArray[amountEnd + i])
+            newIngredient.measure = Qty(measureArray.join(' '))
+          }
+          if (!newIngredient.measure) {
+            i = 0;
+            newIngredient.measure = 'count';
+          }
+          // Creates ingredient from everything else
+          newIngredient.name = ingredArray.slice(amountEnd + i + 1).join(' ').toLowerCase
+
+          // Creates ingredient and measure if do not exist.  Adds their id's to each ingredient.
+          let ingredName = await Ingredient.findOne({ where: { name: newIngredient.name } });
           if (!ingredName) {
-            ingredName = await Ingredient.create({ name: ingredient.name });
+            ingredName = await Ingredient.create({ name: newIngredient.name });
           }
           ingredName = ingredName.get({ plain: true });
-          ingredient.ingredient_id = ingredName.id;
-          let measureName = await Measure.findOne({ where: { name: ingredient.measure } });
+          newIngredient.ingredient_id = ingredName.id;
+          let measureName = await Measure.findOne({ where: { name: newIngredient.measure } });
           if (!measureName) {
-            measureName = await Measure.create({ name: ingredient.measure });
+            measureName = await Measure.create({ name: newIngredient.measure });
           }
           measureName = measureName.get({ plain: true });
-          ingredient.measure_id = measureName.id
+          newIngredient.measure_id = measureName.id
         }
-        return ingredientList
+        return ingredientObs;
       }
     },
     sequelize,
