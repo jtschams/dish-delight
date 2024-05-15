@@ -97,6 +97,7 @@ RecipeIngredient.init(
           }
           measureName = measureName.get({ plain: true });
           newIngredient.measure_id = measureName.id
+          ingredientObs.push(newIngredient)
         }
         return ingredientObs;
       }
