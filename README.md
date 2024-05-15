@@ -34,15 +34,20 @@ To install the project dependencies, follow these steps:
 # Our Developers 👨‍💻👩‍💻
 - Andrew Vu [GitHub](https://github.com/andrewvu71) 
 
-Andrew's responsibility on this application was to create and apply Handlebars.js to help keep the view and the code of our application maintain separated. Andrew also utilized Bootstrap to create the application's Home page for a sophisticated and professional appearance. 
+Andrew's responsibility on this application was to create and apply Handlebars.js to help keep the View and the code of the application maintain separated. Andrew also utilized Bootstrap to create the application's Home page for a sophisticated and professional appearance. 
 
 - J.T. Schams [GitHub](https://github.com/jtschams)
 
-J.T.took on the task of creating the Models component to handle the application's data, logic, and rules. J.T. and Jewel also shared the responsibility of creating a Seed file to populate the dtabase with the application's data for future development.
+J.T.took on the task of creating the Models component to handle the application's data, logic, and rules. J.T. and Jewel also shared the responsibility of creating a Seed file to populate the database with the application's data for future development.
 
 - Erika Lopez [GitHub](https://github.com/erikaylopez)
 
+Erika was responsible for the application's front end Javascript that runs in the client's browser- including user events, validating form inputs and making asynchronous requests to the server.
+
 - Jewel Sunny [GitHub](https://github.com/jewelsunny1)
+
+Jewel took on the task of creating the Controllers component of the application which acts as the intermdediary between the Model and the View. The Controllers process logic and incoming requests, manipulates data using the Model, and interacts with the Views to render the final output.
+
 
 # How to contribute ✍
 
