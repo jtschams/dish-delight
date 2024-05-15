@@ -1,23 +1,19 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Ingredient extends Model {}
+class Measure extends Model { }
 
-Ingredient.init(
+Measure.init(
   {
     id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-    },
-    type: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
     name: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      defaultValue: 'count',
     }
   },
   {
@@ -25,8 +21,8 @@ Ingredient.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'ingredient',
+    modelName: 'measure',
   }
 );
 
-module.exports = Ingredient;
+module.exports = Measure;

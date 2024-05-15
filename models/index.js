@@ -6,42 +6,42 @@ const RecipeIngredient = require('./RecipeIngredient')
 
 // Created Recipes
 User.hasMany(Recipe, {
-    foreignKey: 'user_id',
-    onDelete: 'SET NULL',
-    as: 'created_recipes'
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL',
+  as: 'created_recipes'
 });
 
 Recipe.belongsTo(User, {
-    foreignKey: 'user_id'
+  foreignKey: 'user_id'
 });
 
 // Saved Recipes
 User.belongsToMany(Recipe, {
-    through: {
-        model: 'user_recipes'
-    },
-    as: 'my-recipes'
+  through: {
+    model: 'user_recipes'
+  },
+  as: 'my-recipes'
 });
 
 Recipe.belongsToMany(User, {
-    through: {
-        model: 'user-recipes'
-    }
+  through: {
+    model: 'user-recipes'
+  }
 });
 
 // Single ingredient line
 Ingredient.belongsToMany(Measure, {
-    through: {
-        model: RecipeIngredient,
-        unique: false
-    }
+  through: {
+    model: RecipeIngredient,
+    unique: false
+  }
 });
 
 Measure.belongsToMany(Ingredient, {
-    through: {
-        model: RecipeIngredient,
-        unique: false
-    }
+  through: {
+    model: RecipeIngredient,
+    unique: false
+  }
 });
 
 Ingredient.hasMany(RecipeIngredient);
@@ -51,15 +51,15 @@ RecipeIngredient.hasMany(Measure);
 
 // Full Ingredient list
 Recipe.belongsToMany(RecipeIngredient, {
-    through: {
-        model: 'ingredient-list',
-    }
+  through: {
+    model: 'ingredient-list',
+  }
 });
 
 RecipeIngredient.belongsToMany(Recipe, {
-    through: {
-        model: 'ingredient-list'
-    }
+  through: {
+    model: 'ingredient-list'
+  }
 })
 
 module.exports = { User, Recipe, Ingredient, Measure, RecipeIngredient };
