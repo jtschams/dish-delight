@@ -1,3 +1,4 @@
+
 const sequelize = require('../config/connection');
 const userData = require('./User');
 // const recipeData = require('./Recipe');
