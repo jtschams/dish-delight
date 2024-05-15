@@ -1,27 +1,28 @@
+<section class="hero text-center py-5" style="background-color: #8fb7c9;">
+    <div class="container">
+        <h1 class="display-4" style="color: #b3cfbc;">Welcome to Dish Delight!</h1>
+        <p class="lead" style="color: #ffcccb;">A Recipe Manager</p>
+        <a href="/recipes" class="btn btn-primary btn-lg" style="background-color: #ffb6c1; border-color: #ffb6c1;">Explore Recipes</a>
+    </div>
+</section>
 
-<h1>{{user.name}}'s login screen page! Auth protected. Add content to views/viewRecipes.handlebars here!</h1>
-
-<p>So here is the page that users will see after signing up or logging in (atm you stay logged in so anytime you come back to the page it will already signed in)</p>
-
-<h2>Recipe Form</h2>
-
-<form id="recipe-form">
-    <label for="title">Name of Dish</label>
-    <input type="text" id="title" name="title" required>
-    
-    <label for="description">Description of Dish</label>
-    <textarea id="description" name="description" required></textarea>
-    
-    <label for="ingredients">List Ingredients</label>
-    <textarea id="ingredients" name="ingredients" required></textarea>
-    
-    <label for="instructions">Instructions</label>
-    <textarea id="instructions" name="instructions" required></textarea>
-    
-    <button type="submit">Create</button>
-</form>
-
-
-
-
-
+{{!-- Will Show a couple recipes "Featured" --}}
+<section class="featured-recipes py-5">
+    <div class="container">
+        <h2 class="text-center mb-4" style="color: #ffb347;">Featured Recipes</h2>
+        <div class="row">
+            {{#each featuredRecipes}}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{{imageUrl}}" class="card-img-top" alt="Recipe Image">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: #8fb7c9;">{{title}}</h5>
+                            <p class="card-text" style="color: #b3cfbc;">{{description}}</p>
+                            <a href="/recipes/{{id}}" class="btn btn-primary" style="background-color: #ffb6c1; border-color: #ffb6c1;">View Recipe</a>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

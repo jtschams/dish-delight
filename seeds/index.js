@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 const sequelize = require('../config/connection');
 const userData = require('./User');
 // const recipeData = require('./Recipe');
@@ -20,4 +19,3 @@ const seedDatabase = async () => {
 };
 
 seedDatabase();
->>>>>>> 84a508cd1713935f0c4161686197a66239caf2e0
