@@ -20,12 +20,12 @@ User.belongsToMany(Recipe, {
   through: {
     model: 'user_recipes'
   },
-  as: 'my-recipes'
+  as: 'my_recipes'
 });
 
 Recipe.belongsToMany(User, {
   through: {
-    model: 'user-recipes'
+    model: 'user_recipes'
   }
 });
 
@@ -33,14 +33,14 @@ Recipe.belongsToMany(User, {
 Ingredient.belongsToMany(Measure, {
   through: {
     model: RecipeIngredient,
-    unique: false
+    key: 'ingredient_id',
   }
 });
 
 Measure.belongsToMany(Ingredient, {
   through: {
     model: RecipeIngredient,
-    unique: false
+    key: 'measure_id',
   }
 });
 
@@ -52,13 +52,13 @@ RecipeIngredient.hasMany(Measure);
 // Full Ingredient list
 Recipe.belongsToMany(RecipeIngredient, {
   through: {
-    model: 'ingredient-list',
+    model: 'ingredient_list',
   }
 });
 
 RecipeIngredient.belongsToMany(Recipe, {
   through: {
-    model: 'ingredient-list'
+    model: 'ingredient_list'
   }
 })
 
