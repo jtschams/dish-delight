@@ -3,41 +3,47 @@
 const router = require('express').Router();
 const { Recipe} = require('../models');
 const withAuth = require('../utils/auth');
-
+//Route to display all recipes
 router.get('/', async (req, res) => {
     try {
-        const dbRecipesData = await Recipe.findAll({
+        const dbRecipes = await Recipe.findAll({
             
         });
         
-        const recipes = recipesData.map((recipe) => recipe.get({ plain: true }));
+        const recipes = dbRecipes.map(recipe => recipe.get({ plain: true }));
         
         res.render('createRecipes', {
-            users,
+            recipes,
             // Pass the logged in flag to the template
             loggedIn: req.session.loggedIn,
         });
         return res.status(200).json(recipes)
     } catch (err) {
-        return res.status(500).json({message:'Internal server: Could not find all recipes',error:err.message});
+      console.error('Error finding ALL recipes:',err);
+        return res.status(500).json({message:'Internal server error',error:err.message});
       
     }
 });
 
 // Prevent non logged in users from viewing the recipe page
+//Route to display a single recipe
 router.get('/recipe:id', withAuth, async (req, res) => {
     try {
     const dbRecipeData = await Recipe.findByPk(req.params.id,{
-
     });
 
-    const recipe= recipeData.get({plain:true});
+    if(!dbRecipeData){
+      return res.status(404).json({message:'Recipe not found'});
+    }
+
+    const recipe= dbRecipeData.get({plain:true});
     res.render('viewRecipes',{recipe,
       loggedIn: req.session.loggedIn,
-    })
+    });
     return res.status(200).json(recipe)
   } catch (err) {
-    return res.status(500).json({message:'Internal server: Could not find that recipe',error:err.message});
+    console.error('Error finding that recipe:',err);
+    return res.status(500).json({message:'Internal server error',error:err.message});
   }
 });
 
@@ -53,8 +59,8 @@ router.get('/login', (req, res) => {
 
 router.get('/create-recipes',withAuth, async(req,res)=>{
   try{
-    const dbCreateRecipeData= await Recipe.findAll({})
-    const createRecipe=createRecipeData.map((recipe)=>recipe.get({plain:true}));
+    const dbCreateRecipeData= await Recipe.findAll({});
+    const createRecipe=dbCreateRecipeData.map(recipe=> recipe.get({plain:true}));
     res.render('createRecipes', {
       createRecipe,
       
@@ -63,23 +69,26 @@ router.get('/create-recipes',withAuth, async(req,res)=>{
 
     return res.status(200).json(createRecipe)
   }catch(err){
-    return res.status(500).json({message:'Internal server: Could not find that recipe',error:err.message});
+    console.error('Error retrieving created recipe', err)
+    return res.status(500).json({message:'Internal server error',error:err.message});
   }
 });
 
 router.get('/my-recipes',withAuth, async(req,res)=>{
   try{
-    const dbMyRecipesData= await Recipe.findAll({})
-    const myRecipe=myRecipesData.map((recipe)=>recipe.get({plain:true}));
+    const dbMyRecipesData= await Recipe.findAll({where:{user_id:req.session.user_id}})
+    const myRecipe=dbMyRecipesData.map((recipe)=>recipe.get({plain:true}));
     res.render('viewRecipes', {
       myRecipe,
       
       loggedIn: req.session.loggedIn
   });
 
-    return res.status(200).json(createRecipe)
+  return res.status(200).json(myRecipe)
   }catch(err){
-    return res.status(500).json({message:'Internal server: Could not view your recipes',error:err.message});
+    console.error('Error retrieving my recipes', err)
+    return res.status(500).json({message:'Internal server error',error:err.message});
+    
   }
 });
 
