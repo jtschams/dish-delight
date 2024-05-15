@@ -27,9 +27,7 @@ Recipe.init(
 				model: 'user',
 				key: 'id'
 			},
-			validate: {
-				notNull: true
-			}
+			
 		}
 	},
 	{
