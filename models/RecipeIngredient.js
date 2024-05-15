@@ -22,6 +22,12 @@ class RecipeIngredient extends Model {
 
 RecipeIngredient.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     ingredient_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -46,6 +52,7 @@ RecipeIngredient.init(
   {
     hooks: {
       beforeBulkCreate: async (ingredientList) => {
+        
         // Creates ingredient and measure if do not exist.  Adds their id's to each ingredient.
         for (const ingredient of ingredientList) {
           let ingredName = await Ingredient.findOne({ where: { name: ingredient.name } });
@@ -68,7 +75,7 @@ RecipeIngredient.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'recipe-ingredient',
+    modelName: 'recipe_ingredient',
   }
 );
 
