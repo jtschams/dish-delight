@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Qty = require('js-quantities');
 const Ingredient = require('./Ingredient');
 const Measure = require('./Measure');
 
@@ -41,36 +42,23 @@ RecipeIngredient.init(
       allowNull: false
     },
     measure_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'measure',
         key: 'id'
       }
+    },
+    recipe_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'recipe',
+        key: 'id'
+      }
     }
   },
   {
-    hooks: {
-      beforeBulkCreate: async (ingredientList) => {
-        
-        // Creates ingredient and measure if do not exist.  Adds their id's to each ingredient.
-        for (const ingredient of ingredientList) {
-          let ingredName = await Ingredient.findOne({ where: { name: ingredient.name } });
-          if (!ingredName) {
-            ingredName = await Ingredient.create({ name: ingredient.name });
-          }
-          ingredName = ingredName.get({ plain: true });
-          ingredient.ingredient_id = ingredName.id;
-          let measureName = await Measure.findOne({ where: { name: ingredient.measure } });
-          if (!measureName) {
-            measureName = await Measure.create({ name: ingredient.measure });
-          }
-          measureName = measureName.get({ plain: true });
-          ingredient.measure_id = measureName.id
-        }
-        return ingredientList
-      }
-    },
     sequelize,
     timestamps: false,
     freezeTableName: true,

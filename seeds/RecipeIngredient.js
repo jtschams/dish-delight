@@ -1,7 +1,5 @@
 const { RecipeIngredient } =  require('../models');
 
-const ingredientData = [];
-
-const seedIngredient = () => RecipeIngredient.bulkCreate(ingredientData);
+const seedIngredient = (ingredientData) => RecipeIngredient.bulkCreate(ingredientData);
 
 module.exports = seedIngredient;
