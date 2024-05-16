@@ -64,10 +64,14 @@
         </h1>
         <nav>
             <ul class="nav-tabs">
-                <li><a href="/createRecipe" class="nav-link">Create Recipe</a></li>
-                <li><a href="/myrecipe" class="nav-link">My Recipes</a></li>
-                <li><a href="/viewRecipes" class="nav-link">View Recipes</a></li>
-                <li><button class="logout-btn" id="logout">Logout</button></li>
+                <li><a href="/create-recipes" class="nav-link">Create Recipe</a></li>
+                <li><a href="/my-recipes" class="nav-link">My Recipes</a></li>
+                <li><a href="/" class="nav-link">View Recipes</a></li>
+                {{#if loggedIn}}
+                  <li><button class="logout-btn" id="logout">Logout</button></li>
+                {{else}}
+                  <li><a href="/login" class="nav-link">Log In</a></li>
+                {{/if}}
             </ul>
         </nav>
     </header>
