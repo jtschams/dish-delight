@@ -1,20 +1,20 @@
 async function saveFormHandler(event) {
     event.preventDefault();
 
-    const recipe_name = document.querySelector('#recipe_name').value;
+    const name = document.querySelector('#title').value;
     const description = document.querySelector('#description').value;
     const ingredients = document.querySelector('#ingredients').value.split('\n');
-    const instructions = document.querySelector('#instructions').value;
+    const directions = document.querySelector('#instructions').value;
     const id = window.location.toString().split('/')[ //
         window.location.toString().split('/').length - 1 
     ];
     const response = await fetch(`/api/recipes/${id}`, {
-        method: 'PUT',
+        method: 'POST',
         body: JSON.stringify({
-            recipe_name,
+            name,
             description,
             ingredients,
-            instructions
+            directions
         }),
         headers: {
             'Content-Type': 'application/json'
