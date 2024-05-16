@@ -6,50 +6,42 @@
     </div>
 </section>
 
-{{!-- Will Show a couple recipes "Featured" --}}
-<section class="featured-recipes py-5">
-    <div class="container">
-        <h2 class="text-center mb-4" style="color: #ffb347;">Featured Recipes</h2>
-        <div class="row">
-            {{#each featuredRecipes}}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <img src="{{imageUrl}}" class="card-img-top" alt="Recipe Image">
-                        <div class="card-body">
-                            <h5 class="card-title" style="color: #8fb7c9;">{{title}}</h5>
-                            <p class="card-text" style="color: #b3cfbc;">{{description}}</p>
-                            <a href="/recipes/{{id}}" class="btn btn-primary" style="background-color: #ffb6c1; border-color: #ffb6c1;">View Recipe</a>
-                        </div>
-                    </div>
-                </div>
+
+<section class="recipes">
+    {{#each recipes}} 
+    <div class="recipe">
+        <h2>{{Chicken Parmesan}}</h2> 
+        <p>{{American Italian non-pasta dish}}</p> 
+        <img src="{{https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2022%2F03%2F19%2F223042-Chicken-Parmesan-mfs_003.jpg&q=60&c=sc&poi=auto&orient=true&h=512}}" alt="{{Chicken Parmesan}}"> 
+        <ul>
+            {{#each ingredients}} // This is the list of ingredients
+                <li>{{4 skinless, boneless chicken breast halves}}</li> 
+                <li>{{salt and freshly ground black pepper to taste}}</li> 
+                <li>{{2 large eggs}}</li> 
+                <li>{{1 cup panko bread crumbs}}</li>
+                <li>{{3/4 cup grated Parmesan cheese}}</li>
+                <li>{{2 tablespoons of all-purpose flour}}</li>
+                <li>{{1/2 cup olive oil for frying}}</li>
+                <li>{{1/2 cup prepared tomato sauce}}</li>
+                <li>{{1/4 cup fresh mozzarella}}</li>
+                <li>{{1/4 cup chopped fresh basil}}</li>
+                <li>{{1/2 cup grated provolone cheese}}</li>
+                <li>{{2 tablespoons olive oil}}</li>
             {{/each}}
-        </div>
+        </ul>
+        <h3>Instructions:</h3> 
+        <ol>
+            {{#each instructions}} 
+                <li>{{Preheat an oven to 450 degrees F (230 degrees C).}}</li>
+                <li>{{Place chicken breasts between two pieces of waxed paper and pound to 1/4-inch thick with a mallet. Season chicken thoroughly with salt and pepper.}}</li>
+                <li>{{Season chicken thoroughly with salt and pepper. Using a sifter or strainer; sprinkle flour over chicken breasts, evenly coating both sides}}</li>
+                <li>{{Beat eggs in a shallow bowl and set aside. Combine panko bread crumbs and Parmesan cheese in a separate bowl. Place flour in a third bowl.}}</li>
+                <li>{{Dip each chicken breast in the flour mixture, then the eggs, and finally the bread crumb mixture, pressing crumbs into the meat to coat. Set aside breaded chicken breasts for about 15 minutes.}}</li>
+                <li>{{Heat 1/2 cup olive oil in a large skillet on medium-high heat until it begins to shimmer. Cook chicken until golden, about 2 minutes on each side. The chicken will finish cooking in the oven.}}</li>
+                <li>{{Place chicken in a baking dish and top each breast with 2 tablespoons cup of tomato sauce, 1/4 cup mozzarella cheese, 1/4 cup provolone cheese, and 1 tablespoon of basil. Sprinkle 1 to 2 tablespoons of Parmesan cheese on top and drizzle with 2 tablespoons olive oil.}}</li>
+                <li>{{Bake in the preheated oven until cheese is browned and bubbly, and chicken breasts are no longer pink in the center, 15 to 20 minutes. An instant-read thermometer inserted into the center should read at least 165 degrees F (74 degrees C).}}</li>
+            {{/each}}
+        </ol>
     </div>
+    {{/each}}
 </section>
-    <script>
-        function fileChange() {
-            var file = document.getElementById('input_img');
-            var form = new FormData();
-            form.append("image", file.files[0]);
-            console.log(file.files);
-            var url = "https://api.imgbb.com/1/upload?key=123b3628999f3acd81d822ab7e51db47";
-            const config = {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Access-Control-Allow-Origin': '*',
-                    'Connection': 'keep-alive',
-                    'Content-Type': 'application/json',
-                },
-                body: form
-            }
-
-
-            fetch(url, config)
-                .then(res => res.json())
-                .then(data => console.log(data))
-                .catch(err => console.log(err));
-        }
-    </script>
-
-
