@@ -20,7 +20,7 @@ router.post ('/create-recipes', async (req,res)=>{
             user_id: req.session.user_id,
         });
        
-   const indgreientData= await convert (ingredients,req.session.user_id);
+   const indgreientData= await convert (ingredients, newRecipe.id);
    RecipeIngredient.bulkCreate(indgreientData);
 
         return res.status(200).json(newRecipe);
