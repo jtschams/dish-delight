@@ -34,6 +34,7 @@ Ingredient.belongsToMany(Measure, {
   through: {
     model: RecipeIngredient,
     key: 'ingredient_id',
+    unique: false
   }
 });
 
@@ -41,6 +42,7 @@ Measure.belongsToMany(Ingredient, {
   through: {
     model: RecipeIngredient,
     key: 'measure_id',
+    unique: false
   }
 });
 

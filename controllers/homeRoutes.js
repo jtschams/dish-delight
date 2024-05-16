@@ -6,8 +6,13 @@ const withAuth = require('../utils/auth');
 //Route to display all recipes
 router.get('/', async (req, res) => {
     try {
-        const dbRecipes = await Recipe.findAll({
-            
+        const dbRecipes = await Recipe.findAll({ include: [
+            {
+              model: RecipeIngredient,
+              as: 'ingredient_list',
+              include: [ Ingredient, Measure]
+            }
+          ] 
         });
         
         const recipes = dbRecipes.map(recipe => recipe.get({ plain: true }));
