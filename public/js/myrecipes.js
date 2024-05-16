@@ -31,16 +31,3 @@ document
 .querySelector('.save-recipe-form')
 .eventListener('submit', saveFormHandler);
 
-//Below is the javascript code for the form submission, im not sure where its actually supposed to go -Andrew
-document.getElementById('recipe-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // Collect form data
-    const formData = {
-        title: document.getElementById('title').value,
-        description: document.getElementById('description').value,
-        ingredients: document.getElementById('ingredients').value,
-        instructions: document.getElementById('instructions').value
-    };
-
-});
