@@ -33,10 +33,6 @@ Recipe.init(
 				model: 'user',
 				key: 'id'
 			},
-<<<<<<< HEAD
-			
-=======
->>>>>>> e2be085ad41b304fe447b681c2cd1d952736b656
 		}
 	},
 	{
