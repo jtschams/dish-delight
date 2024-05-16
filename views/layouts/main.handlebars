@@ -2,36 +2,86 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dish Delight Application</title>
-  <link rel="stylesheet" href="/css/jass.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dish Delight Application</title>
+    <link rel="stylesheet" href="/css/jass.css">
+    <style>
+        /* Custom styling for the tabs */
+        .nav-tabs {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-tabs li {
+            margin-right: 10px;
+        }
+
+        .nav-tabs li:last-child {
+            margin-right: 0;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            padding: 10px 15px;
+            color: #333; /* Dark text color */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background-color: #f8f9fa; /* Light gray background color on hover */
+        }
+
+        .nav-link.active {
+            background-color: #ffb6c1; /* Pastel button color */
+            color: #fff; /* White text color */
+        }
+
+        /* Additional styling for the logout button */
+        .logout-btn {
+            padding: 10px 15px;
+            background-color: #dc3545; /* Red color for logout button */
+            color: #fff; /* White text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #c82333; /* Darker red color on hover */
+        }
+    </style>
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-     Dish Delight Application
-    </h1>
-    {{#if loggedIn}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{else}}
-        <a href="/login">Login</a>
-    {{/if}}
-  </header>
-  <main class="container container-fluid mt-5">
-    <p> </p>
-    {{{ body }}}
-  </main>
-  <footer>
-    
-  </footer>
+    <header class="display-flex justify-space-between align-center p-2">
+        <h1>
+            Dish Delight Application
+        </h1>
+        <nav>
+            <ul class="nav-tabs">
+                <li><a href="/createRecipe" class="nav-link">Create Recipe</a></li>
+                <li><a href="/myrecipe" class="nav-link">My Recipes</a></li>
+                <li><a href="/viewRecipes" class="nav-link">View Recipes</a></li>
+                <li><button class="logout-btn" id="logout">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+        <p> </p>
+        {{{ body }}}
+    </main>
+    <footer>
 
-  {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+    </footer>
+
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>

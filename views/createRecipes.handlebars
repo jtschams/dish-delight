@@ -8,27 +8,37 @@
     <link rel="stylesheet" href="/css/styles.css"> 
     <style>
         
+        body {
+            background-color: #f0f0f0; 
+            font-family: Arial, sans-serif; 
+        }
+
         #recipe-form {
             max-width: 500px;
-            margin: 0 auto;
+            margin: 50px auto; 
             padding: 20px;
-            background-color: #f8f9fa; 
-            border: 1px solid #b3cfbc; 
+            background-color: #fff; 
+            border: 1px solid #ddd; 
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        h1 {
+            text-align: center; 
+            color: #555; 
         }
 
         label {
             display: block;
             margin-bottom: 10px;
-            color: #495057; 
+            color: #555; 
         }
 
         input[type="text"],
         textarea {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ced4da; 
+            border: 1px solid #ccc; 
             border-radius: 5px;
             box-sizing: border-box;
             margin-bottom: 15px;
@@ -66,35 +76,10 @@
             
             <button type="submit">Create</button>
         </form>
-        <script>
-    function fileChange() {
-        var file = document.getElementById('input_img');
-        var form = new FormData();
-        form.append("image", file.files[0]);
-        console.log(file.files);
-        var url = "https://api.imgbb.com/1/upload?key=123b3628999f3acd81d822ab7e51db47";
-        const config = {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Connection': 'keep-alive',
-                'Content-Type': 'application/json',
-            },
-            body: form
-        }
-
-
-        fetch(url, config)
-            .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.log(err));
-    }
-</script>
     </main>
     <footer>
         <p> </p>
     </footer>
+    <script src="/js/myrecipes.js"></script>
 </body>
-<script src="/js/myrecipes.js"></script>
 </html>
