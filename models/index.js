@@ -46,8 +46,8 @@ Measure.belongsToMany(Ingredient, {
 
 Ingredient.hasMany(RecipeIngredient);
 Measure.hasMany(RecipeIngredient);
-RecipeIngredient.hasMany(Ingredient);
-RecipeIngredient.hasMany(Measure);
+RecipeIngredient.belongsTo(Ingredient);
+RecipeIngredient.belongsTo(Measure);
 
 Recipe.hasMany(RecipeIngredient, {
   foreignKey: 'recipe_id',

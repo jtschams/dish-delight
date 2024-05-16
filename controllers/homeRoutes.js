@@ -1,7 +1,7 @@
 // TODO: Change or add any View routes here
 
 const router = require('express').Router();
-const { Recipe,User} = require('../models');
+const { Recipe, User, Measure, Ingredient, RecipeIngredient } = require('../models');
 const withAuth = require('../utils/auth');
 //Route to display all recipes
 router.get('/', async (req, res) => {
@@ -29,13 +29,18 @@ router.get('/', async (req, res) => {
 //Route to display a single recipe
 router.get('/recipe/:id', /*withAuth,*/ async (req, res) => {
     try {
-    const dbRecipeData = await Recipe.findByPk(req.params.id,{
+    const dbRecipeData = await Recipe.findByPk(req.params.id,{ include: [
+      {
+        model: RecipeIngredient,
+        as: 'ingredient_list',
+        include: [ Ingredient, Measure]
+      }
+    ]
     });
 
     if(!dbRecipeData){
       return res.status(404).json({message:'Recipe not found'});
     }
-
     const recipe= dbRecipeData.get({plain:true});
     return res.render('viewRecipes',{recipe,
       loggedIn: req.session.loggedIn,
