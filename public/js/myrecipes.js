@@ -25,9 +25,17 @@ async function saveFormHandler(event) {
     } else {
         alert('Failed to save recipe'); 
     }
+
+    // local storage
+    const recipeData = {
+        recipe_name,
+        description,
+        ingredients,
+        instructions
+    };
+    localStorage.setItem('recipeData', JSON.stringify(recipeData));
 }
 
 document
 .querySelector("#recipe-form")
 .addEventListener('submit', saveFormHandler);
-
