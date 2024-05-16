@@ -4,9 +4,9 @@ const withAuth=require('../../utils/auth');
 
 
 //     /api/recipes/create-recipes
-router.post ('/create-Recipes', async (req,res)=>{
+router.post ('/create-recipes', async (req,res)=>{
     try{
-        const{name, directions, description, picture}=req.body
+        const{name, directions, description, picture,ingredients}=req.body
 
         const newRecipe= await Recipe.create({
             name,
@@ -16,13 +16,15 @@ router.post ('/create-Recipes', async (req,res)=>{
             user_id: req.session.user_id,
             ingredients
 
-        },
+        });
        
-    );
-        return res.status(200)(newRecipe);
+   
+        return res.status(200).json(newRecipe);
 
     }catch(err){
         return res.status(500).json({Message:'Internal Server Error', error:err.message});
 
     }
 })
+
+module.exports=router;
