@@ -12,7 +12,7 @@
     <div class="recipe">
         <h2>{{Chicken Parmesan}}</h2> 
         <p>{{American Italian non-pasta dish}}</p> 
-        <img src="{{https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2022%2F03%2F19%2F223042-Chicken-Parmesan-mfs_003.jpg&q=60&c=sc&poi=auto&orient=true&h=512}}" alt="{{Chicken Parmesan}}"> 
+        <img src="{{public\Assets\Chicken-Parmesan.jpg}}" alt="{{Chicken Parmesan}}"> 
         <ul>
             {{#each ingredients}} // This is the list of ingredients
                 <li>{{4 skinless, boneless chicken breast halves}}</li> 
@@ -40,6 +40,33 @@
                 <li>{{Heat 1/2 cup olive oil in a large skillet on medium-high heat until it begins to shimmer. Cook chicken until golden, about 2 minutes on each side. The chicken will finish cooking in the oven.}}</li>
                 <li>{{Place chicken in a baking dish and top each breast with 2 tablespoons cup of tomato sauce, 1/4 cup mozzarella cheese, 1/4 cup provolone cheese, and 1 tablespoon of basil. Sprinkle 1 to 2 tablespoons of Parmesan cheese on top and drizzle with 2 tablespoons olive oil.}}</li>
                 <li>{{Bake in the preheated oven until cheese is browned and bubbly, and chicken breasts are no longer pink in the center, 15 to 20 minutes. An instant-read thermometer inserted into the center should read at least 165 degrees F (74 degrees C).}}</li>
+            {{/each}}
+        </ol>
+    </div>
+    {{/each}}
+</section>
+
+
+<section class="recipes">
+    {{#each recipes}} 
+    <div class="recipe">
+        <h2>{{Banana Oatmeal Cookies}}</h2> 
+        <p>{{Healthy alternative to classic chocolate chip cookies}}</p> 
+        <img src="{{public\Assets\Banana-Oatmeal-Cookies.webp}}" alt="{{Banana Oatmeal Cookies}}"> 
+        <ul>
+            {{#each ingredients}} // This is the list of ingredients
+                <li>{{3/4 cup mashed banana}}</li> 
+                <li>{{1/2 cup rolled oats}}</li> 
+                <li>{{3 tablespoons raisins}}</li> 
+              
+            {{/each}}
+        </ul>
+        <h3>Instructions:</h3> 
+        <ol>
+            {{#each instructions}} 
+                <li>{{Preheat the oven to 350 degrees F (180 degrees C). Line a baking sheet with parchment paper. }}</li>
+                <li>{{Stir bananas and oats together in a bowl until well combined. Stir in raisins. Using a medium sized cookie scoop, drop dough onto the prepared baking sheet. Using your fingers, gently pat down dough to form a round cookie.}}</li>
+                <li>{{Bake in the preheated oven until beginning to brown on the bottom, 14 to 15 minutes. Cool on a wire rack.}}</li>
             {{/each}}
         </ol>
     </div>
