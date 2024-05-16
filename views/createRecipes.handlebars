@@ -1,23 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>This is the create recipe page.</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="/css/styles.css"> 
+    <style>
+       
+        .recipe-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa; 
+            border: 1px solid #b3cfbc; 
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
 
+        .form-group {
+            margin-bottom: 20px;
+        }
 
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            color: #495057; 
+        }
 
-<form id="recipe-form">
-    <label for="title">Name of Dish</label>
-    <input type="text" id="title" name="title" required>
-    
-    <label for="description">Description of Dish</label>
-    <textarea id="description" name="description" required></textarea>
-    
-    <label for="ingredients">List Ingredients</label>
-    <textarea id="ingredients" name="ingredients" required></textarea>
-    
-    <label for="instructions">Instructions</label>
-    <textarea id="instructions" name="instructions" required></textarea>
-    
-    <button type="submit">Create</button>
-</form>
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da; 
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
 
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffb6c1; 
+            color: #fff; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
 
-<script src="/js/myrecipes.js"></script>
+<body>
+    <header>
+        <h1>Add Recipe</h1>
+    </header>
+    <main>
+        <form class="recipe-form">
+            <div class="form-group">
+                <label for="title" class="form-label">Title:</label>
+                <input type="text" id="title" class="form-input" placeholder="Enter the title of your recipe" required>
+            </div>
+            <div class="form-group">
+                <label for="description" class="form-label">Description:</label>
+                <textarea id="description" class="form-input" placeholder="Enter a brief description of your recipe" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="ingredients" class="form-label">Ingredients:</label>
+                <textarea id="ingredients" class="form-input" placeholder="Enter the ingredients of your recipe, separated by commas" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="instructions" class="form-label">Instructions:</label>
+                <textarea id="instructions" class="form-input" placeholder="Enter the cooking instructions of your recipe" rows="6" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Add Recipe</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Dish Delight Application</p>
+    </footer>
+</body>
+
+</html>
