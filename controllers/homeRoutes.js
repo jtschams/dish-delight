@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 
 // Prevent non logged in users from viewing the recipe page
 //Route to display a single recipe
-router.get('/recipe/:id', /*withAuth,*/ async (req, res) => {
+router.get('/recipe/:id', withAuth, async (req, res) => {
     try {
     const dbRecipeData = await Recipe.findByPk(req.params.id,{
     });
@@ -57,7 +57,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/create-recipes',/*withAuth,*/ async(req,res)=>{
+router.get('/create-recipes',withAuth, async(req,res)=>{
   try{
     const dbCreateRecipeData= await Recipe.findAll({});
     const createRecipe=dbCreateRecipeData.map(recipe=> recipe.get({plain:true}));
@@ -75,7 +75,7 @@ router.get('/create-recipes',/*withAuth,*/ async(req,res)=>{
 });
 
 
-router.get('/my-recipes', /*withAuth,*/ async (req,res)=>{
+router.get('/my-recipes', withAuth, async (req,res)=>{
   try{
     const userData=await User.findByPk(req.session.user_id,{
       include: [{
@@ -92,7 +92,7 @@ router.get('/my-recipes', /*withAuth,*/ async (req,res)=>{
 
     const myRecipes= userData.my_recipes.map((recipe)=> recipe.get({plain:true}));
 
-    return res.render('viewRecipes',{
+    return res.render('myrecipes',{
       myRecipes,
       loggedIn: req.session.loggedIn
     });

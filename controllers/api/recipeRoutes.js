@@ -1,7 +1,7 @@
 const router= require('express').Router();
-const { Recipe} = require('../../models');
+const { Recipe, RecipeIngredient} = require('../../models');
 const withAuth=require('../../utils/auth');
-
+const convert= require('../../utils/ingredObj')
 
 //     /api/recipes/create-recipes
 router.post ('/create-recipes', async (req,res)=>{
@@ -14,13 +14,12 @@ router.post ('/create-recipes', async (req,res)=>{
             description,
             picture,
             user_id: req.session.user_id,
-            ingredients
-
         });
        
-   
-        return res.status(200).json(newRecipe);
+   const indgreientData= await convert (ingredients,req.session.user_id);
+   RecipeIngredient.bulkCreate(indgreientData);
 
+        return res.status(200).json(newRecipe);
     }catch(err){
         return res.status(500).json({Message:'Internal Server Error', error:err.message});
 
