@@ -4,7 +4,7 @@ const withAuth=require('../../utils/auth');
 
 
 //     /api/recipes/create-recipes
-router.post ('/create-Recipes', async (req,res)=>{
+router.post ('/create-recipes', async (req,res)=>{
     try{
         const{name, directions, description, picture,ingredients}=req.body
 
