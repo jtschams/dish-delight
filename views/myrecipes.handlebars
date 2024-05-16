@@ -1,14 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Recipes</title>
+    <link rel="stylesheet" href="/css/styles.css"> 
+    <style>
+        
+        .recipe-card {
+            width: 300px;
+            padding: 20px;
+            margin: 20px;
+            background-color: #f8f9fa; 
+            border: 1px solid #b3cfbc; 
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        .recipe-card img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .recipe-card h2 {
+            margin-bottom: 10px;
+            color: #495057; 
+        }
+
+        .recipe-card p {
+            margin-bottom: 10px;
+            color: #495057; 
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #ffb6c1; 
+            color: #fff; 
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <header>
+        <h1>My Recipes</h1>
+    </header>
+    <main>
+        <div class="recipe-container">
+            {{#each myRecipes}}
+            <div class="recipe-card">
+                <img src="{{imageUrl}}" alt="{{title}}">
+                <h2>{{title}}</h2>
+                <p>{{description}}</p>
+                <a href="/recipes/{{id}}" class="btn">View Recipe</a>
+            </div>
+            {{/each}}
+        </div>
+    </main>
+    <footer>
+        <p> </p>
+    </footer>
 </body>
+
 </html>
-test
-test
-test
