@@ -1,10 +1,10 @@
 # Dish Delight
 
-# Description 📝
+## Description 📝
 
 Dish Delight is a recipe application that allows registered users the ability to browse a database of recipes to find a dish they are planning to make/create, they can also use this application to save favorite recipes and upload their own. This application was created using Sequelize, Express, and Postgres.
 
-# Table of Contents 📚
+## Table of Contents 📚
 - [Deployed Site](#deployed-site-🌎)
 - [Installation](#installation-🖥️)
 - [Usage](#usage)
@@ -15,10 +15,10 @@ Dish Delight is a recipe application that allows registered users the ability to
 - [License](#-license-©️)
 - [Acknowledgements](#-acknowledgements-🏆)
 
-# Deployed Site 🌎
+## Deployed Site 🌎
 
 
-# Installation 🖥️
+## Installation 🖥️
 
 To install the project dependencies, follow these steps:
 
@@ -26,12 +26,12 @@ To install the project dependencies, follow these steps:
 - Fork and clone the repository [[Dish Delight](https://github.com/jtschams/dish-delight)].
 - Run npm i to install dependencies in the local project directory.
 
-# Usage
+## Usage
 
 
-# Features
+## Features
 
-# Our Developers 👨‍💻👩‍💻
+## Our Developers 👨‍💻👩‍💻
 - Andrew Vu [GitHub](https://github.com/andrewvu71) 
 
 Andrew's responsibility on this application was to create and apply Handlebars.js to help keep the View and the code of the application maintain separated. Andrew also utilized Bootstrap to create the application's Home page for a sophisticated and professional appearance. 
@@ -49,7 +49,7 @@ Erika was responsible for the application's front end Javascript that runs in th
 Jewel took on the task of creating the Controllers component of the application which acts as the intermdediary between the Model and the View. The Controllers process logic and incoming requests, manipulates data using the Model, and interacts with the Views to render the final output.
 
 
-# How to contribute ✍
+## How to contribute ✍
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
 
@@ -66,17 +66,17 @@ If you have a suggestion that would make this better, please fork the repo and c
 11. Click "Create Pull Request". The owner of the project will get an email notification that some changes have been made and that a pull request is ready for their review.
 12. The owner can approve or reject the pull request and optionally add some additional comments for your review. While this is a simple edit we are making to the readme.md file, you can imagine a situation where your code would require some additional review.
 
-# Technologies 🌐
+## Technologies 🌐
 
 - CSS
 - JavaScript 
 - Handlebars
 
-# License ©️
+## License ©️
 
 Licensed under the MIT license. Copyright @ MIT. All rights reserved.
 
-# Acknowledgements 🏆
+## Acknowledgements 🏆
 
 - [EmojiPedia](https://emojipedia.org/)
 - [Bootstrap](https://getbootstrap.com/)

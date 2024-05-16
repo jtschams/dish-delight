@@ -80,7 +80,7 @@ router.get('/create-recipes',/*withAuth,*/ async(req,res)=>{
 });
 
 
-router.get('/my-recipes', /*withAuth,*/ async (req,res)=>{
+router.get('/my-recipes',/* withAuth,*/ async (req,res)=>{
   try{
     const userData=await User.findByPk(req.session.user_id,{
       include: [{
@@ -97,7 +97,7 @@ router.get('/my-recipes', /*withAuth,*/ async (req,res)=>{
 
     const myRecipes= userData.my_recipes.map((recipe)=> recipe.get({plain:true}));
 
-    return res.render('viewRecipes',{
+    return res.render('myrecipes',{
       myRecipes,
       loggedIn: req.session.loggedIn
     });
