@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const RecipeIngredient = require('./RecipeIngredient')
 
 class Recipe extends Model { }
 
@@ -36,12 +35,6 @@ Recipe.init(
 		}
 	},
 	{
-		hooks: {
-			afterCreate: async (recipeData) => {
-				await RecipeIngredient.bulkCreate(recipeData.ingredients)
-				return recipeData
-			}
-		},
 		sequelize,
 		timestamps: false,
 		freezeTableName: true,
