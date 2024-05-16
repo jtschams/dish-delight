@@ -1,25 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>This is the create recipe page.</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Recipe</title>
+    <link rel="stylesheet" href="/css/styles.css"> 
+    <style>
+        
+        #recipe-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa; 
+            border: 1px solid #b3cfbc; 
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+        }
 
-<section>
-<form id="recipe-form">
-    <label for="title">Name of Dish</label>
-    <input type = "file" id="input_img" name="input_img" onchange="fileChange()" required>
-    <input type="text" id="title" name="title" required>
-    
-    <label for="description">Description of Dish</label>
-    <textarea id="description" name="description" required></textarea>
-    
-    <label for="ingredients">List Ingredients</label>
-    <textarea id="ingredients" name="ingredients" required></textarea>
-    
-    <label for="instructions">Instructions</label>
-    <textarea id="instructions" name="instructions" required></textarea>
-    
-    <button type="submit">Create</button>
-</form>
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #495057; 
+        }
 
-<script>
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da; 
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffb6c1; 
+            color: #fff; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Create Recipe</h1>
+    </header>
+    <main>
+        <form id="recipe-form">
+            <label for="title">Name of Dish</label>
+            <input type="text" id="title" name="title" required>
+            
+            <label for="description">Description of Dish</label>
+            <textarea id="description" name="description" required></textarea>
+            
+            <label for="ingredients">List Ingredients</label>
+            <textarea id="ingredients" name="ingredients" required></textarea>
+            
+            <label for="instructions">Instructions</label>
+            <textarea id="instructions" name="instructions" required></textarea>
+            
+            <button type="submit">Create</button>
+        </form>
+        <script>
     function fileChange() {
         var file = document.getElementById('input_img');
         var form = new FormData();
@@ -37,6 +84,10 @@
             .catch(err => console.log(err));
     }
 </script>
-
+    </main>
+    <footer>
+        <p> </p>
+    </footer>
+</body>
 <script src="/js/myrecipes.js"></script>
-</section>
+</html>
