@@ -28,6 +28,6 @@ async function saveFormHandler(event) {
 }
 
 document
-.querySelector('.save-recipe-form')
-.eventListener('submit', saveFormHandler);
+.querySelector("#recipe-form")
+.addEventListener('submit', saveFormHandler);
 

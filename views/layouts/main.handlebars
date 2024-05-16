@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dish Delight Application</title>
-  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="../../public/css/jass.css">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
       <button class="btn" id="logout">logout</button>
     </nav>
     {{else}}
-        <a href="/login">Login</a>
+        <a href="../../public/js/login.js">Login</a>
     {{/if}}
   </header>
   <main class="container container-fluid mt-5">
@@ -30,7 +30,7 @@
   </footer>
 
   {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
+  <script src="../../public/js/logout.js"></script>
   {{/if}}
 </body>
 

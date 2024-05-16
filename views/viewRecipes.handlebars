@@ -1,74 +1,140 @@
-<section class="hero text-center py-5" style="background-color: #8fb7c9;">
+<section class="hero text-center py-5" style="background-color: #53a5cb;">
     <div class="container">
-        <h1 class="display-4" style="color: #b3cfbc;">Welcome to Dish Delight!</h1>
-        <p class="lead" style="color: #ffcccb;">A Recipe Manager</p>
-        <a href="/recipes" class="btn btn-primary btn-lg" style="background-color: #ffb6c1; border-color: #ffb6c1;">Sign Up</a>
+        <h1 class="display-4" style="color: #f3f2ed;">Welcome to Dish Delight!</h1>
+        <p class="lead" style="color: #fff7cb;">A Recipe Manager</p>
     </div>
 </section>
-
-
 <section class="recipes">
-    {{#each recipes}} 
-    <div class="recipe">
-        <h2>{{Chicken Parmesan}}</h2> 
-        <p>{{American Italian non-pasta dish}}</p> 
-        <img src="{{public/Assets/Chicken-Parmesan.jpg}}" alt="{{Chicken Parmesan}}"> 
-        <ul>
-            {{#each ingredients}} // This is the list of ingredients
-                <li>{{4 skinless, boneless chicken breast halves}}</li> 
-                <li>{{salt and freshly ground black pepper to taste}}</li> 
-                <li>{{2 large eggs}}</li> 
-                <li>{{1 cup panko bread crumbs}}</li>
-                <li>{{3/4 cup grated Parmesan cheese}}</li>
-                <li>{{2 tablespoons of all-purpose flour}}</li>
-                <li>{{1/2 cup olive oil for frying}}</li>
-                <li>{{1/2 cup prepared tomato sauce}}</li>
-                <li>{{1/4 cup fresh mozzarella}}</li>
-                <li>{{1/4 cup chopped fresh basil}}</li>
-                <li>{{1/2 cup grated provolone cheese}}</li>
-                <li>{{2 tablespoons olive oil}}</li>
-            {{/each}}
-        </ul>
-        <h3>Instructions:</h3> 
-        <ol>
-            {{#each instructions}} 
-                <li>{{Preheat an oven to 450 degrees F (230 degrees C).}}</li>
-                <li>{{Place chicken breasts between two pieces of waxed paper and pound to 1/4-inch thick with a mallet. Season chicken thoroughly with salt and pepper.}}</li>
-                <li>{{Season chicken thoroughly with salt and pepper. Using a sifter or strainer; sprinkle flour over chicken breasts, evenly coating both sides}}</li>
-                <li>{{Beat eggs in a shallow bowl and set aside. Combine panko bread crumbs and Parmesan cheese in a separate bowl. Place flour in a third bowl.}}</li>
-                <li>{{Dip each chicken breast in the flour mixture, then the eggs, and finally the bread crumb mixture, pressing crumbs into the meat to coat. Set aside breaded chicken breasts for about 15 minutes.}}</li>
-                <li>{{Heat 1/2 cup olive oil in a large skillet on medium-high heat until it begins to shimmer. Cook chicken until golden, about 2 minutes on each side. The chicken will finish cooking in the oven.}}</li>
-                <li>{{Place chicken in a baking dish and top each breast with 2 tablespoons cup of tomato sauce, 1/4 cup mozzarella cheese, 1/4 cup provolone cheese, and 1 tablespoon of basil. Sprinkle 1 to 2 tablespoons of Parmesan cheese on top and drizzle with 2 tablespoons olive oil.}}</li>
-                <li>{{Bake in the preheated oven until cheese is browned and bubbly, and chicken breasts are no longer pink in the center, 15 to 20 minutes. An instant-read thermometer inserted into the center should read at least 165 degrees F (74 degrees C).}}</li>
-            {{/each}}
-        </ol>
+    <div class="container">
+        <h2 class="text-center">Featured Recipes</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img
+                        src="https://th.bing.com/th/id/OIP.Fvm8EN5E3p9D7HNky0XGPQHaLH?w=197&h=296&c=7&r=0&o=5&pid=1.7">
+                    <div class="card-body">
+                        <h5 class="card-title">Ground Beef Casserole</h5>
+                        <p class="Description"> This ground beef casserole is a hearty and comforting dish that's perfect for a weeknight dinner. It's easy to make and packed with flavor, making it a family favorite.</p>
+                        <ul class="Ingredients">
+                            <li>1 pound uncooked penne </li>
+                            <li>tablespoon olive oil</li>
+                            <li>1 pound lean ground beef</li>
+                            <li>1/2 medium onion chopped</li>
+                            <li> 1 clove garlic minced</li>
+                            <li> 1.5 cups marinara sauce</li>
+                            <li>Salt & pepper to taste</li>
+                            <li>1.5 cups shredded cheddar cheese</li>
+                        </ul>
+                        <ul class="Instructions">
+                            <li>Preheat the oven to 375°F.</li>
+                            <li>Cook the penne according to package instructions, then drain and set aside.</li>
+                            <li>In a large skillet, heat the olive oil over medium heat. Add the ground beef, 
+                            chopped onion, and minced garlic. Cook until the beef is browned and the onion is softened.</li>
+                            <li>Stir in the marinara sauce, salt, and pepper. Simmer for 5 minutes.</li>
+                            <li>In a greased baking dish, layer half of the cooked penne, followed by half of the beef mixture, 
+                                and half of the shredded cheddar cheese. Repeat the layers.</li>
+                            <li>Bake for 20-25 minutes, or until the cheese is melted and bubbly.</li>
+                            <li>Remove from the oven and let it cool for a few minutes before serving.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://th.bing.com/th?id=OSK.1f1dc7375dc081a48cb8c2e8eaa4f318&w=213&h=213&rs=2&qlt=80&o=6&cdv=1&pid=16.1" class="card-img-top" alt="Recipe 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Garlic Butter Chicken Tenders</h5>
+                        <p class="Description">These garlic butter chicken tenders are so juicy and tender, you'll want to make them again and again. 
+                            They're perfect for a quick and easy weeknight dinner, and the whole family will love them.</p>
+                        <ul class="Ingredients">
+                            <li>1 pound chicken tenders</li>
+                            <li>1/2 cup flour</li>
+                            <li>1/2 teaspoon salt</li>
+                            <li>1/4 teaspoon pepper</li>
+                            <li>1/2 teaspoon garlic powder</li>
+                            <li>1/4 cup butter</li>
+                            <li>1 clove garlic minced</li>
+                            <li>1 tablespoon lemon juice</li>
+                        </ul>
+                        <ul class="Instructions">
+                            <li>Preheat the oven to 375°F.</li>
+                            <li>Combine the flour, salt, pepper, and garlic powder in a shallow dish.</li>
+                            <li>Dredge the chicken tenders in the flour mixture, shaking off any excess.</li>
+                            <li>In a large skillet, melt the butter over medium heat. Add the minced garlic and cook for 1 minute.</li>
+                            <li>Add the chicken tenders to the skillet and cook for 3-4 minutes per side, or until golden brown.</li>
+                            <li>Drizzle the lemon juice over the chicken tenders and bake for 15 minutes, or until the chicken is cooked through.</li>
+                            <li>Remove from the oven and let it cool for a few minutes before serving.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <section class="recipes">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img
+                        src="https://th.bing.com/th?id=OSK.ca633fdcbeb23bbb826e7efb40f0c5df&w=213&h=213&rs=2&qlt=80&o=6&cdv=1&pid=16.1">
+                    <div class="card-body">
+                        <h5 class="card-title">Baked Cod</h5>
+                        <p class="Description">This baked cod recipe is a simple and delicious way to prepare cod fillets. 
+                            The fish is seasoned with a mixture of lemon, garlic, and herbs, then baked to perfection. It's a healthy and flavorful dish 
+                            that's perfect for a quick and easy weeknight dinner.</p></p>
+                        <ul class="Ingredients">
+                            <li>4 cod fillets</li>
+                            <li>2 tablespoons olive oil</li>
+                            <li>1 lemon, juiced</li>
+                            <li>2 cloves garlic, minced</li>
+                            <li>1 teaspoon dried oregano</li>
+                            <li>1 teaspoon dried thyme</li>
+                            <li>Salt & pepper to taste</li>
+                            <li>Fresh parsley, chopped, for garnish</li>
+                        </ul>
+                        <ul class="Instructions">
+                            <li>Preheat the oven to 400°F.</li>
+                            <li>Place the cod fillets in a greased baking dish.</li>
+                            <li>In a small bowl, whisk together the olive oil, lemon juice, garlic, oregano, thyme, salt, and pepper.</li>
+                            <li>Pour the mixture over the cod fillets, making sure they are evenly coated.</li>
+                            <li>Bake for 15-20 minutes, or until the fish is cooked through and flakes easily with a fork.</li>
+                            <li>Garnish with fresh parsley and serve immediately.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                        <section class="recipes">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img
+                        src="https://th.bing.com/th?id=OSK.6dbfe30324418be0b14a1aa15fa98381&w=213&h=319&rs=2&qlt=80&o=6&cdv=1&pid=16.1">
+                    <div class="card-body">
+                        <h5 class="card-title">Cauliflower Tacos</h5>
+                        <p class="Description"> These cauliflower tacos are a delicious and healthy alternative to traditional tacos. The cauliflower is roasted until 
+                            crispy and golden brown, then topped with a tangy slaw and creamy avocado sauce. They're perfect for a quick and easy weeknight dinner, 
+                            and the whole family will love them.</p> </p>
+                        <ul class="Ingredients">
+                            <li>1 head cauliflower, cut into florets</li>
+                            <li>2 tablespoons olive oil</li>
+                            <li>1 teaspoon chili powder</li>
+                            <li>1/2 teaspoon cumin</li>
+                            <li>1/2 teaspoon garlic powder</li>
+                            <li>Salt & pepper to taste</li>
+                            <li>8 small corn tortillas</li>
+                            <li>1 cup shredded red cabbage</li>
+                            <li>1/4 cup chopped cilantro</li>
+                        </ul>
+                        <ul class="Instructions">
+                            <li>Preheat the oven to 425°F.</li>
+                            <li>Toss the cauliflower florets with the olive oil, chili powder, cumin, garlic powder, salt, and pepper.</li>
+                            <li>Spread the cauliflower on a baking sheet in a single layer and roast for 20-25 minutes, or until golden brown and crispy.</li>
+                            <li>Warm the tortillas in a dry skillet over medium heat.</li>
+                            <li>Divide the cauliflower, red cabbage, and cilantro among the tortillas.</li>
+                            <li>Drizzle with the avocado sauce and serve immediately.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    {{/each}}
-</section>
-
-
-<section class="recipes">
-    {{#each recipes}} 
-    <div class="recipe">
-        <h2>{{Banana Oatmeal Cookies}}</h2> 
-        <p>{{Healthy alternative to classic chocolate chip cookies}}</p> 
-        <img src="{{public/Assets/Banana-Oatmeal-Cookies.webp}}" alt="{{Banana Oatmeal Cookies}}"> 
-        <ul>
-            {{#each ingredients}} // This is the list of ingredients
-                <li>{{3/4 cup mashed banana}}</li> 
-                <li>{{1/2 cup rolled oats}}</li> 
-                <li>{{3 tablespoons raisins}}</li> 
-              
-            {{/each}}
-        </ul>
-        <h3>Instructions:</h3> 
-        <ol>
-            {{#each instructions}} 
-                <li>{{Preheat the oven to 350 degrees F (180 degrees C). Line a baking sheet with parchment paper. }}</li>
-                <li>{{Stir bananas and oats together in a bowl until well combined. Stir in raisins. Using a medium sized cookie scoop, drop dough onto the prepared baking sheet. Using your fingers, gently pat down dough to form a round cookie.}}</li>
-                <li>{{Bake in the preheated oven until beginning to brown on the bottom, 14 to 15 minutes. Cool on a wire rack.}}</li>
-            {{/each}}
-        </ol>
-    </div>
-    {{/each}}
 </section>
