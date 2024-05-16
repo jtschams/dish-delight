@@ -49,17 +49,14 @@ Measure.hasMany(RecipeIngredient);
 RecipeIngredient.hasMany(Ingredient);
 RecipeIngredient.hasMany(Measure);
 
-// Full Ingredient list
-Recipe.belongsToMany(RecipeIngredient, {
-  through: {
-    model: 'ingredient_list',
-  }
-});
+Recipe.hasMany(RecipeIngredient, {
+  foreignKey: 'recipe_id',
+  onDelete: 'CASCADE',
+  as: 'ingredient_list'
+})
 
-RecipeIngredient.belongsToMany(Recipe, {
-  through: {
-    model: 'ingredient_list'
-  }
+RecipeIngredient.belongsTo(Recipe, {
+  foreignKey: 'recipe_id'
 })
 
 module.exports = { User, Recipe, Ingredient, Measure, RecipeIngredient };
