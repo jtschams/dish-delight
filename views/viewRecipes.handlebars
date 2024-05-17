@@ -1,237 +1,15 @@
-<!-- Add the necessary CSS and JavaScript for Bootstrap modals -->
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-<section class="hero text-center py-5" style="background-color: #53a5cb;">
-    <div class="container">
-        <h1 class="display-4" style="color: #f3f2ed;">Welcome to Dish Delight!</h1>
-        <p class="lead" style="color: #fff7cb;">A Recipe Manager</p>
-    </div>
-</section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Recipes</title>
+    <link rel="stylesheet" href="/css/styles.css"> 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<section class="recipes">
-    <div class="container">
-        <h2 class="text-center mb-4">Featured Recipes</h2>
-        <div class="row">
-            <!-- Recipe 1 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100">
-                    <img src="https://th.bing.com/th/id/OIP.Fvm8EN5E3p9D7HNky0XGPQHaLH?w=197&h=296&c=7&r=0&o=5&pid=1.7" class="card-img-top" alt="Recipe Image">
-                    <div class="card-body">
-                        <h5 class="card-title mb-3">Ground Beef Casserole</h5>
-                        <p>This ground beef casserole is a hearty and comforting dish that's perfect for a weeknight dinner. It's easy to make and packed with flavor, making it a family favorite.</p>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#recipe1Modal">View Recipe</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Recipe 2 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100">
-                    <img src="https://littlesunnykitchen.com/wp-content/uploads/2021/01/Garlic-Butter-Chicken-Tenders-8-730x1095.jpg" class="card-img-top" alt="Recipe Image">
-                    <div class="card-body">
-                        <h5 class="card-title mb-3">Garlic Butter Chicken Tenders</h5>
-                        <p>These garlic butter chicken tenders are so juicy and tender, you'll want to make them again and again. They're perfect for a quick and easy weeknight dinner, and the whole family will love them.</p>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#recipe2Modal">View Recipe</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Recipe 3 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100">
-                    <img src="https://th.bing.com/th?id=OSK.ca633fdcbeb23bbb826e7efb40f0c5df&w=213&h=213&rs=2&qlt=80&o=6&cdv=1&pid=16.1" class="card-img-top" alt="Recipe Image">
-                    <div class="card-body">
-                        <h5 class="card-title mb-3">Baked Cod</h5>
-                        <p>This baked cod recipe is a simple and delicious way to prepare cod fillets. The fish is seasoned with a mixture of lemon, garlic, and herbs, then baked to perfection. It's a healthy and flavorful dish that's perfect for a quick and easy weeknight dinner.</p>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#recipe3Modal">View Recipe</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Recipe 4 -->
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100">
-                    <img src="https://th.bing.com/th?id=OSK.6dbfe30324418be0b14a1aa15fa98381&w=213&h=319&rs=2&qlt=80&o=6&cdv=1&pid=16.1" class="card-img-top" alt="Recipe Image">
-                    <div class="card-body">
-                        <h5 class="card-title mb-3">Cauliflower Tacos</h5>
-                        <p>These cauliflower tacos are a delicious and healthy alternative to traditional tacos. The cauliflower is roasted until crispy and golden brown, then topped with a tangy slaw and creamy avocado sauce. They're perfect for a quick and easy weeknight dinner, and the whole family will love them.</p>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#recipe4Modal">View Recipe</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Recipe Modals -->
-<div class="modal fade" id="recipe1Modal" tabindex="-1" role="dialog" aria-labelledby="recipe1ModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="recipe1ModalLabel">Ground Beef Casserole Recipe</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h6 class="card-subtitle mt-2 mb-2">Ingredients:</h6>
-                <ul>
-                    <li>1 pound uncooked penne</li>
-                    <li>tablespoon olive oil</li>
-                    <li>1 pound lean ground beef</li>
-                    <li>1/2 medium onion chopped</li>
-                    <li>1 clove garlic minced</li>
-                    <li>1.5 cups marinara sauce</li>
-                    <li>Salt & pepper to taste</li>
-                    <li>1.5 cups shredded cheddar cheese</li>
-                </ul>
-                <h6 class="card-subtitle mt-4 mb-2">Instructions:</h6>
-                <ol>
-                    <li>Preheat the oven to 375°F.</li>
-                    <li>Cook the penne according to package instructions, then drain and set aside.</li>
-                    <li>In a large skillet, heat the olive oil over medium heat. Add the ground beef, chopped onion, and minced garlic. Cook until the beef is browned and the onion is softened.</li>
-                    <li>Stir in the marinara sauce, salt, and pepper. Simmer for 5 minutes.</li>
-                    <li>In a greased baking dish, layer half of the cooked penne, followed by half of the beef mixture, and half of the shredded cheddar cheese. Repeat the layers.</li>
-                    <li>Bake for 20-25 minutes, or until the cheese is melted and bubbly.</li>
-                    <li>Remove from the oven and let it cool for a few minutes before serving.</li>
-                </ol>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Recipe 2 Modal -->
-<div class="modal fade" id="recipe2Modal" tabindex="-1" role="dialog" aria-labelledby="recipe2ModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="recipe2ModalLabel">Garlic Butter Chicken Tenders Recipe</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h6 class="card-subtitle mt-2 mb-2">Ingredients:</h6>
-                <ul>
-                    <li>1 pound chicken tenders</li>
-                    <li>1/2 cup flour</li>
-                    <li>1/2 teaspoon salt</li>
-                    <li>1/4 teaspoon pepper</li>
-                    <li>1/2 teaspoon garlic powder</li>
-                    <li>1/4 cup butter</li>
-                    <li>1 clove garlic minced</li>
-                    <li>1 tablespoon lemon juice</li>
-                </ul>
-                <h6 class="card-subtitle mt-4 mb-2">Instructions:</h6>
-                <ol>
-                    <li>Preheat the oven to 375°F.</li>
-                    <li>Combine the flour, salt, pepper, and garlic powder in a shallow dish.</li>
-                    <li>Dredge the chicken tenders in the flour mixture, shaking off any excess.</li>
-                    <li>In a large skillet, melt the butter over medium heat. Add the minced garlic and cook for 1 minute.</li>
-                    <li>Add the chicken tenders to the skillet and cook for 3-4 minutes per side, or until golden brown.</li>
-                    <li>Drizzle the lemon juice over the chicken tenders and bake for 15 minutes, or until the chicken is cooked through.</li>
-                    <li>Remove from the oven and let it cool for a few minutes before serving.</li>
-                </ol>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Recipe 3 Modal -->
-<div class="modal fade" id="recipe3Modal" tabindex="-1" role="dialog" aria-labelledby="recipe3ModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="recipe3ModalLabel">Baked Cod Recipe</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h6 class="card-subtitle mt-2 mb-2">Ingredients:</h6>
-                <ul>
-                    <li>4 cod fillets</li>
-                    <li>2 tablespoons olive oil</li>
-                    <li>1 lemon, juiced</li>
-                    <li>2 cloves garlic, minced</li>
-                    <li>1 teaspoon dried oregano</li>
-                    <li>1 teaspoon dried thyme</li>
-                    <li>Salt & pepper to taste</li>
-                    <li>Fresh parsley, chopped, for garnish</li>
-                </ul>
-                <h6 class="card-subtitle mt-4 mb-2">Instructions:</h6>
-                <ol>
-                    <li>Preheat the oven to 400°F.</li>
-                    <li>Place the cod fillets in a greased baking dish.</li>
-                    <li>In a small bowl, whisk together the olive oil, lemon juice
-                    <li>In a small bowl, whisk together the olive oil, lemon juice, minced garlic, oregano, thyme, salt, and pepper.</li>
-                    <li>Pour the mixture over the cod fillets, ensuring they are evenly coated.</li>
-                    <li>Bake for 15-20 minutes, or until the fish is opaque and flakes easily with a fork.</li>
-                    <li>Garnish with chopped parsley before serving.</li>
-                </ol>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Recipe 4 Modal -->
-<div class="modal fade" id="recipe4Modal" tabindex="-1" role="dialog" aria-labelledby="recipe4ModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="recipe4ModalLabel">Cauliflower Tacos Recipe</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h6 class="card-subtitle mt-2 mb-2">Ingredients:</h6>
-                <ul>
-                    <li>1 head cauliflower, cut into florets</li>
-                    <li>2 tablespoons olive oil</li>
-                    <li>1 teaspoon chili powder</li>
-                    <li>1/2 teaspoon cumin</li>
-                    <li>1/2 teaspoon paprika</li>
-                    <li>1/4 teaspoon garlic powder</li>
-                    <li>Salt & pepper to taste</li>
-                    <li>8 small tortillas</li>
-                    <li>1 cup shredded lettuce</li>
-                    <li>1/2 cup diced tomatoes</li>
-                    <li>1/4 cup diced red onion</li>
-                    <li>1/4 cup chopped cilantro</li>
-                    <li>1 avocado, sliced</li>
-                    <li>Lime wedges, for serving</li>
-                </ul>
-                <h6 class="card-subtitle mt-4 mb-2">Instructions:</h6>
-                <ol>
-                    <li>Preheat the oven to 425°F.</li>
-                    <li>In a large bowl, toss the cauliflower florets with olive oil, chili powder, cumin, paprika, garlic powder, salt, and pepper until evenly coated.</li>
-                    <li>Spread the cauliflower on a baking sheet in a single layer.</li>
-                    <li>Bake for 20-25 minutes, or until the cauliflower is tender and slightly crispy.</li>
-                    <li>Warm the tortillas according to package instructions.</li>
-                    <li>Assemble the tacos by filling each tortilla with roasted cauliflower, shredded lettuce, diced tomatoes, diced red onion, chopped cilantro, and avocado slices.</li>
-                    <li>Serve with lime wedges for squeezing over the tacos.</li>
-                </ol>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<!-- 
 <section class="recipes">
     <div class="container">
         <h2 class="text-center mb-4">Featured Recipes</h2>
@@ -243,7 +21,38 @@
                     <div class="card-body">
                         <h5 class="card-title mb-3">{{ name }}</h5>
                         <p class="card-text">{{ description }}</p>
-                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#recipe{{ id }}Modal">View Recipe</button>
+                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#recipe{{ @index }}Modal">View Recipe</button>
+                    </div>
+                </div>
+                <!-- Recipe Modal -->
+                <div class="modal fade" id="recipe{{ @index }}Modal" tabindex="-1" role="dialog" aria-labelledby="recipe{{ @index }}ModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="recipe{{ @index }}ModalLabel">{{ name }}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h6 class="card-subtitle mt-2 mb-2">Ingredients:</h6>
+                                <ul>
+                                    {{#each ingredients}}
+                                    <li>{{ directions }}</li>
+                                    {{/each}}
+                                </ul>
+                                <h6 class="card-subtitle mt-4 mb-2">Instructions:</h6>
+                                <ol>
+                                    {{#each instructions}}
+                                    <li>{{ directions }}</li>
+                                    {{/each}}
+                                </ol>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary">Close</button>
+                        </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -251,4 +60,3 @@
         </div>
     </div>
 </section>
--->
