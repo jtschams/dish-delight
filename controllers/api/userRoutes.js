@@ -1,5 +1,3 @@
-// TODO: Change or add any User-specific API routes here
-
 const router = require('express').Router();
 const { User } = require('../../models');
 // /api/users

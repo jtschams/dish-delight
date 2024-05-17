@@ -35,7 +35,7 @@
         }
 
         input[type="text"],
-        textarea {
+        textarea, input[type='file'] {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc; 
@@ -64,6 +64,9 @@
         <form id="recipe-form">
             <label for="title">Name of Dish</label>
             <input type="text" id="title" name="title" required>
+
+            <label for="input_img">Upload Image</label>
+            <input type = "file" id="input_img" name="input_img" onchange="fileChange()" required>
             
             <label for="description">Description of Dish</label>
             <textarea id="description" name="description" required></textarea>
