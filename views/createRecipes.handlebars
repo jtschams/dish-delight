@@ -93,7 +93,7 @@
 
         fetch(url, config)
             .then(res => res.json())
-            .then(({data}) => console.log(data.url))
+            .then((data) => localStorage.setItem('picture', JSON.parse(data).data.url))
             .catch(err => console.log(err));
     }
 </script>
@@ -102,6 +102,6 @@
     <footer>
         <p> </p>
     </footer>
-    <script src="../public/js/myrecipes.js"></script>
+    <script src="/js/myrecipes.js"></script>
 </body>
 </html>

@@ -14,7 +14,8 @@ async function saveFormHandler(event) {
             name,
             description,
             ingredients,
-            directions
+            directions,
+            picture: localStorage.getItem('picture')
         }),
         headers: {
             'Content-Type': 'application/json'

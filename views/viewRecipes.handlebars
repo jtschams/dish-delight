@@ -42,18 +42,12 @@
                 <div class="modal-body">
                   <h6 class="card-subtitle mt-2 mb-2">Ingredients:</h6>
                   <ul>
-                    {{#each ingredients}}
-                    <li>{{{ amount }}}</li>
-                    <li>{{{ measure.name }}}</li>
-                    <li>{{{ ingredient.name }}}</li>
+                    {{#each ingredient_list}}
+                    <li>{{{ amount }}}{{#if (notCount ingredient.measure.name)}} {{{ingredient.measure.name}}}{{/if}} {{{ ingredient.name }}}</li>
                     {{/each}}
                   </ul>
                   <h6 class="card-subtitle mt-4 mb-2">Instructions:</h6>
-                  <ol>
-                    {{#each directions}}
-                    <li>{{ this }}</li>
-                    {{/each}}
-                  </ol>
+                  <p>{{{directions}}}</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
