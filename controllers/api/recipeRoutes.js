@@ -6,6 +6,18 @@ const multer = require('multer');
 const upload = multer();
 const request = require('request');
 
+router.get('/recipes', async (req, res) => {
+    try {
+      const recipeData = await Recipe.findAll();
+      const recipes = recipeData.map((recipe) => recipe.get({ plain: true }));
+  
+      res.render('viewRecipes', { recipes });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json(err);
+    }
+  });
+  
 
 //     /api/recipes/create-recipes
 router.post ('/create-recipes', async (req,res)=>{
