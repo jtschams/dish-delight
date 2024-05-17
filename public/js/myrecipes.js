@@ -21,7 +21,7 @@ async function saveFormHandler(event) {
         }
     });
     if (response.ok) {
-        document.location.replace('/myrecipes'); 
+        document.location.replace('/my-recipes'); 
     } else {
         alert('Failed to save recipe'); 
     }
