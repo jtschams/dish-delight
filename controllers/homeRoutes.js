@@ -87,22 +87,35 @@ router.get('/create-recipes',/*withAuth,*/ async(req,res)=>{
 
 router.get('/my-recipes',/* withAuth,*/ async (req,res)=>{
   try{
-    const userData=await User.findByPk(req.session.user_id,{
-      include: [{
-        model: Recipe,
-        as:'my-recipes',
-        through:{attributes:[]}
-      }
-    ]
-    });
-
+    const userData=await User.findByPk(req.session.userId)
+      //  For use when my-recipes functionality added
+    // // const userData=await User.findByPk(req.session.user_id,{
+    // //   include: [{
+      // //     model: Recipe,
+      // //     as:'my-recipes',
+      // //     through:{attributes:[]}
+      // //   }
+      // // ]
+    // // });
     if(!userData){
       return res.status(404).json({message:'User not found'});
     }
+    
+    //  For use when my-recipes functionality added
+    // // const myRecipes= userData.my_recipes.map((recipe)=> recipe.get({plain:true}));
+    const myRecipes = await Recipe.findAll({
+      include: [{
+        model: RecipeIngredient,
+        as: 'ingredient_list',
+        include: [ Ingredient, Measure]
+      }],
+      where: {
+        user_id: req.session.userId
+      }
+    })
+    console.log(myRecipes)
 
-    const myRecipes= userData.my_recipes.map((recipe)=> recipe.get({plain:true}));
-
-    return res.render('myrecipes',{
+    return res.render('viewRecipes',{
       myRecipes,
       loggedIn: req.session.loggedIn
     });
