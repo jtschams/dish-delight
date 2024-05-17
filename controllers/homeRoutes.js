@@ -1,5 +1,3 @@
-// TODO: Change or add any View routes here
-
 const router = require('express').Router();
 const { Recipe, User, Measure, Ingredient, RecipeIngredient } = require('../models');
 const withAuth = require('../utils/auth');
@@ -32,7 +30,7 @@ router.get('/', async (req, res) => {
 
 // Prevent non logged in users from viewing the recipe page
 //Route to display a single recipe
-router.get('/recipe/:id', /*withAuth,*/ async (req, res) => {
+router.get('/recipe/:id', withAuth, async (req, res) => {
     try {
     const dbRecipeData = await Recipe.findByPk(req.params.id,{ include: [
       {
@@ -67,7 +65,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/create-recipes',/*withAuth,*/ async(req,res)=>{
+router.get('/create-recipes', withAuth, async(req,res)=>{
   try{
     const dbCreateRecipeData= await Recipe.findAll({});
     const createRecipe=dbCreateRecipeData.map(recipe=> recipe.get({plain:true}));
@@ -85,24 +83,37 @@ router.get('/create-recipes',/*withAuth,*/ async(req,res)=>{
 });
 
 
-router.get('/my-recipes',/* withAuth,*/ async (req,res)=>{
+router.get('/my-recipes', withAuth, async (req,res)=>{
   try{
-    const userData=await User.findByPk(req.session.user_id,{
-      include: [{
-        model: Recipe,
-        as:'my-recipes',
-        through:{attributes:[]}
-      }
-    ]
-    });
-
+    const userData=await User.findByPk(req.session.userId)
+      //  For use when my-recipes functionality added
+    // // const userData=await User.findByPk(req.session.user_id,{
+    // //   include: [{
+      // //     model: Recipe,
+      // //     as:'my-recipes',
+      // //     through:{attributes:[]}
+      // //   }
+      // // ]
+    // // });
     if(!userData){
       return res.status(404).json({message:'User not found'});
     }
+    
+    //  For use when my-recipes functionality added
+    // // const myRecipes= userData.my_recipes.map((recipe)=> recipe.get({plain:true}));
+    const myRecipes = await Recipe.findAll({
+      include: [{
+        model: RecipeIngredient,
+        as: 'ingredient_list',
+        include: [ Ingredient, Measure]
+      }],
+      where: {
+        user_id: req.session.userId
+      }
+    })
+    console.log(myRecipes)
 
-    const myRecipes= userData.my_recipes.map((recipe)=> recipe.get({plain:true}));
-
-    return res.render('myrecipes',{
+    return res.render('viewRecipes',{
       myRecipes,
       loggedIn: req.session.loggedIn
     });
