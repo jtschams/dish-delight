@@ -13,26 +13,30 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            justify-content: space-between; /* Spread out the items */
         }
 
         .nav-tabs li {
-            margin-right: 10px;
+            flex: 1; /* Distribute available space equally among items */
         }
 
-        .nav-tabs li:last-child {
-            margin-right: 0;
+        .nav-tabs li:not(:last-child) {
+            margin-right: 10px; /* Add some spacing between items */
         }
 
         .nav-link {
             text-decoration: none;
             padding: 10px 15px;
-            color: #333; /* Dark text color */
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
+            color: #495057; /* Dark gray text color */
+            background-color: #f8f9fa; /* Light gray background color */
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: block; /* Ensure each link takes up full width */
+            text-align: center; /* Center the text */
         }
 
         .nav-link:hover {
-            background-color: #f8f9fa; /* Light gray background color on hover */
+            background-color: #e9ecef; /* Lighter gray background color on hover */
         }
 
         .nav-link.active {
@@ -43,7 +47,7 @@
         /* Additional styling for the logout button */
         .logout-btn {
             padding: 10px 15px;
-            background-color: #ffb6c1; /* Red color for logout button */
+            background-color: #dc3545; /* Red color for logout button */
             color: #fff; /* White text color */
             border: none;
             border-radius: 5px;
@@ -52,31 +56,45 @@
         }
 
         .logout-btn:hover {
-            background-color: #c82333; /* Darker red color on hover */
+            background-color: #ffae42; /* Darker pastel yellow color on hover */
+        }
+
+        /* Header styling */
+        header {
+            background-color: #ff6b81; /* Pastel pink color */
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #fff; /* White text color */
+            margin: 0;
+        }
+
+        /* Main content container */
+        main {
+            padding: 20px;
         }
     </style>
 </head>
 
 <body>
-    <header class="display-flex justify-space-between align-center p-2">
-        <h1>
-            Dish Delight Application
-        </h1>
+    <header>
+        <h1>Dish Delight</h1>
         <nav>
             <ul class="nav-tabs">
                 <li><a href="/create-recipes" class="nav-link">Create Recipe</a></li>
                 <li><a href="/my-recipes" class="nav-link">My Recipes</a></li>
                 <li><a href="/" class="nav-link">View Recipes</a></li>
                 {{#if loggedIn}}
-                  <li><button class="logout-btn" id="logout">Logout</button></li>
+                <li><button class="logout-btn" id="logout">Logout</button></li>
                 {{else}}
-                  <li><a href="/login" class="nav-link">Log In</a></li>
+                <li><a href="/login" class="nav-link">Log In</a></li>
                 {{/if}}
             </ul>
         </nav>
     </header>
-    <main class="container container-fluid mt-5">
-        <p> </p>
+    <main>
         {{{ body }}}
     </main>
     <footer>
